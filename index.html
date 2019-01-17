@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Git Colloboration</title>
     <style>
-    img{
+        img{
         width: 28px;
         height: 28px;
         
@@ -22,26 +22,28 @@
     </style>
 </head>
 <!-- url("images/recyclebin-hover.png"); -->
+
 <body>
+    
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1></h1>
+                <h1>Git Team Work</h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-md-6">
-
+                
                 <form class="ui form">
 
                     <div class="form-group">
                         <label>Customer ID</label>
-                        <input class="form-control" id="txtFullName" type="text" name="txtFullName" placeholder="Customer ID">
+                        <input class="form-control" id="txtFullName" type="text" name="txtFullName" placeholder="Enter Customer ID">
                     </div>
                     <div class="form-group">
                         <label>Customer Name</label>
-                        <input class="form-control" id="txtAddress" type="text" name="txtAddress" placeholder="Customer Name">
+                        <input class="form-control" id="txtAddress" type="text" name="txtAddress" placeholder="Enter Customer Name">
                     </div>
                     <label>Customer Address</label>
                     <div class="input-group">
@@ -49,7 +51,11 @@
                         <input aria-describedby="basic-addon2" class="form-control" id="txtNIC" type="text" name="CustomerAddress"
                             placeholder="Customer Address">
                         <div class="input-group-append">
+<<<<<<< HEAD
                       
+=======
+                            
+>>>>>>> origin/master
                         </div>
                     </div>
                     <div class="row">
@@ -64,12 +70,10 @@
                 </form>
 
             </div>
-           
 
-               
 
-                <table id="tblStudents" class="table table-bordered table-hover">
 
+<<<<<<< HEAD
                     <thead>
                         <tr id="rowadd">
                             <th class="center">No</th>
@@ -88,64 +92,82 @@
                         </tr>
                     </tfoot>
                 </table>
+=======
 
-           
+            <table id="tblStudents" class="table table-bordered table-hover">
+
+                <thead>
+                    <tr id="rowadd">
+                        <th class="center">No</th>
+                        <th class="center">Cutomer ID</th>
+                        <th class="center">Customer Name</th>
+                        <th class="center">Customer Address</th>
+                        <th class="center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="center">There are no records right now !</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+>>>>>>> origin/master
+
 
         </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/home-controller.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    
+
     <script>
-        $("#txtFullName").keydown(function(){
-            $("#txtFullName").css("border",'1px solid blue');
+        $("#txtFullName").keydown(function () {
+            $("#txtFullName").css("border", '1px solid blue');
         });
 
-        $("#txtAddress").keydown(function(){
-            $("#txtAddress").css("border",'1px solid blue');
+        $("#txtAddress").keydown(function () {
+            $("#txtAddress").css("border", '1px solid blue');
         });
 
-        $("#txtNIC").keydown(function(){
-            $("#txtNIC").css("border",'1px solid blue');
-        });    
-    
-    $("#btnAdd").click(function(){
-      var fullname=  $("#txtFullName").val();
-      var address=  $("#txtAddress").val();
-      var nic=  $("#txtNIC").val();
-   
-   
-     
+        $("#txtNIC").keydown(function () {
+            $("#txtNIC").css("border", '1px solid blue');
+        });
 
-     
-        
+        $("#btnAdd").click(function () {
+            var fullname = $("#txtFullName").val();
+            var address = $("#txtAddress").val();
+            var nic = $("#txtNIC").val();
 
-        
-        $("#tblStudents tfoot").hide();
-        if( $("#tblStudents tbody tr").length>0){
-            var index_count2= $("#tblStudents tbody tr:last-child td:first-child").text();
-            var index_count=parseInt(index_count2)+1;
-        }else{
-        var index_count=$("#tblStudents tbody tr").length+1;
-        }
-      
-            $("#tblStudents tbody").append("<tr><td>"+index_count+"</td><td>"+fullname+"</td><td>"+address+"</td><td>"+nic+"V"+"</td><td><img "+"src="+"images/recyclebin.png"+"></td></tr>");
-           
+
+
+            $("#tblStudents tfoot").hide();
+            if ($("#tblStudents tbody tr").length > 0) {
+                var index_count2 = $("#tblStudents tbody tr:last-child td:first-child").text();
+                var index_count = parseInt(index_count2) + 1;
+            } else {
+                var index_count = $("#tblStudents tbody tr").length + 1;
+            }
+
+            $("#tblStudents tbody").append("<tr><td>" + index_count + "</td><td>" + fullname + "</td><td>" + address + "</td><td>" + nic + "</td><td><img " + "src=" + "images/recyclebin.png" + "></td></tr>");
+
             $("#txtFullName").val("");
             $("#txtAddress").val("");
             $("#txtNIC").val("");
 
-            $("#btndele").click(function(){
-                $("#tblStudents tbody tr td:last-child img").parents("tr").fadeOut();
-                if( $("#tblStudents tbody tr").length==0){
+            $("#tblStudents tbody tr td:last-child img").click(function () {
+                $(this).parents("tr").fadeOut();
+                if ($("#tblStudents tbody tr").length == 0) {
                     $("#tblStudents tfoot").show();
-            }
+                }
             });
 
-    });
+        });
 
-   
+
 
     </script>
 </body>
