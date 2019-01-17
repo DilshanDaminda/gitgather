@@ -51,20 +51,14 @@
                         <input aria-describedby="basic-addon2" class="form-control" id="txtNIC" type="text" name="CustomerAddress"
                             placeholder="Customer Address">
                         <div class="input-group-append">
-<<<<<<< HEAD
-                      
-=======
                             
->>>>>>> origin/master
                         </div>
                     </div>
                     <div class="row">
                         <button id="btnAdd" type="button" class="btn btn-primary">
                             Add to Table
                         </button>
-                        <button id="btndele" type="button" class="btn btn-primary">
-                                Delete
-                            </button>
+
                     </div>
                     
                 </form>
@@ -73,26 +67,6 @@
 
 
 
-<<<<<<< HEAD
-                    <thead>
-                        <tr id="rowadd">
-                            <th class="center">No</th>
-                            <th>Customer ID</th>
-                            <th>Customer Name</th>
-                            <th class="center">Customer Address</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5" class="center"></td>
-                        </tr>
-                    </tfoot>
-                </table>
-=======
 
             <table id="tblStudents" class="table table-bordered table-hover">
 
@@ -115,7 +89,6 @@
                 </tfoot>
             </table>
 
->>>>>>> origin/master
 
 
         </div>
@@ -158,12 +131,30 @@
             $("#txtAddress").val("");
             $("#txtNIC").val("");
 
-            $("#tblStudents tbody tr td:last-child img").click(function () {
-                $(this).parents("tr").fadeOut();
-                if ($("#tblStudents tbody tr").length == 0) {
-                    $("#tblStudents tfoot").show();
-                }
-            });
+
+
+
+            $("img").click(function(){
+                     $(this).parent().parent().fadeOut(1000);
+                     var roww  = $(this).parent().parent();
+                     var timer= setTimeout(function(){
+                         roww.remove();
+                        //  var index = $("tbody").children("tr").last().children("th").first().text();
+                        var index = $("tbody").children("tr").first().children("td").first().text();
+                        
+                            if(index < 1){
+                         $("#tblStudents tfoot").show();  
+                         count=0; 
+                     }
+                     },1200);
+                         
+                    
+                     
+                  
+                     
+
+                });
+
 
         });
 
