@@ -1,37 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <title>Git</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Git Colloboration</title>
+    <style>
+    img{
+        width: 28px;
+        height: 28px;
+        
+    }
+
+    img:hover{
+        content: url('images/recyclebin-hover.png');
+       
+    }
+    </style>
 </head>
+<!-- url("images/recyclebin-hover.png"); -->
 <body>
-    
-        <div>
-                <h3> Customer Information</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1></h1>
             </div>
-                
-                <div>
-                  <form action="/action_page.php">
-                    <div>
-                    <label for="fname">Customer ID:</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.."> 
-                </div>
-                <div>
-                    <label for="lname">Customer Name  :</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                </div>
-                  <div>
-                    <label for="Email">Customer Address     :</label>
-                    <input type="text" id="Email" name="Email" placeholder="Email..">
-                </div>
-                   
+        </div>
 
+        <div class="row">
+            <div class="col-12 col-md-6">
 
+                <form class="ui form">
 
+                    <div class="form-group">
+                        <label>Customer ID</label>
+                        <input class="form-control" id="txtFullName" type="text" name="txtFullName" placeholder="Customer ID">
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Name</label>
+                        <input class="form-control" id="txtAddress" type="text" name="txtAddress" placeholder="Customer Name">
+                    </div>
+                    <label>Customer Address</label>
+                    <div class="input-group">
 
+                        <input aria-describedby="basic-addon2" class="form-control" id="txtNIC" type="text" name="CustomerAddress"
+                            placeholder="Customer Address">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">V</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="btnAdd" type="button" class="btn btn-primary">
+                            Add to Table
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+           
+
+               
+
+                <table id="tblStudents" class="table table-bordered table-hover">
+
+                    <thead>
+                        <tr id="rowadd">
+                            <th class="center">No</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th class="center">NIC</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="center">There are no records right now !</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+           
+
+        </div>
     </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/home-controller.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $("#txtFullName").keydown(function(){
+            $("#txtFullName").css("border",'1px solid blue');
+        });
+
+        $("#txtAddress").keydown(function(){
+            $("#txtAddress").css("border",'1px solid blue');
+        });
+
+        $("#txtNIC").keydown(function(){
+            $("#txtNIC").css("border",'1px solid blue');
+        });    
+    
+    $("#btnAdd").click(function(){
+      var fullname=  $("#txtFullName").val();
+      var address=  $("#txtAddress").val();
+      var nic=  $("#txtNIC").val();
+   
+   
+     
+
+     
+        
+
+        
+        $("#tblStudents tfoot").hide();
+        if( $("#tblStudents tbody tr").length>0){
+            var index_count2= $("#tblStudents tbody tr:last-child td:first-child").text();
+            var index_count=parseInt(index_count2)+1;
+        }else{
+        var index_count=$("#tblStudents tbody tr").length+1;
+        }
+      
+            $("#tblStudents tbody").append("<tr><td>"+index_count+"</td><td>"+fullname+"</td><td>"+address+"</td><td>"+nic+"V"+"</td><td><img "+"src="+"images/recyclebin.png"+"></td></tr>");
+           
+            $("#txtFullName").val("");
+            $("#txtAddress").val("");
+            $("#txtNIC").val("");
+
+            $("#tblStudents tbody tr td:last-child img").click(function(){
+                $(this).parents("tr").fadeOut();
+                if( $("#tblStudents tbody tr").length==0){
+                    $("#tblStudents tfoot").show();
+            }
+            });
+
+    });
+
+   
+
+    </script>
 </body>
+
 </html>

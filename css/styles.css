@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed');
+
+*{
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    margin-top: 20px;
+}
+
+.container>div:first-child{
+    padding-bottom: 20px;
+}
+
+#btnAdd{
+    margin-top: 20px;
+}
+
+form div:last-child{
+    text-align:center;
+}
+
+table th:first-child{
+    width:10%;
+}
+
+.center{
+    text-align: center;
+}
